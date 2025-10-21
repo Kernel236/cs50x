@@ -225,6 +225,9 @@ flask_session/
 # *.sqlite
 # *.sqlite3
 
+# Large CS50 database files (>100MB GitHub limit)
+week-7-SQL/movies/movies.db
+
 # ===================
 # Web Development
 # ===================
