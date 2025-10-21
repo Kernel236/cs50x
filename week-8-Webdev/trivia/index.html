@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                 <h3>
+                    What is the Driving Pressure (Dp) and Compliance (C) of my patient's lung if the Vt delivered is 440ml and PEEPe=5cmH2O with PEEPi=2cmH2O a Pplat=27cmH2O?
+                 </h3>
+
+                    <button class="incorrect">Dp=15 C=54</button>
+                    <button class="incorrect">Dp=16 C=54</button>
+                    <button class="incorrect">Dp=20 C=32</button>
+                    <button class="correct">Dp=20 C=22</button>
+
+                    <p id="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                 <h3>
+                    Is this Driving Pressure (Dp) high, low or at acceptable value?
+                 </h3>
+
+                 <input type="text"></input>
+                 <button id="check">Check Answer</button>
+
+                 <p id="feedback2"></p>
+            </div>
+        </div>
+    </body>
+    <script>
+            // TODO: Add code to check answers to questions
+            document.addEventListener('DOMContentLoaded', function() {
+
+                //Correct answer clicked
+                let correct = document.querySelector('.correct');
+                correct.addEventListener('click', function() {
+                    correct.style.backgroundColor = 'green';
+                    document.querySelector('#feedback').innerHTML = 'Correct!';
+                });
+
+                let incorrects = document.querySelectorAll('.incorrect');
+                for (let i = 0; i < incorrects.length; i++) {
+                    incorrects[i].addEventListener('click', function() {
+                        incorrects[i].style.backgroundColor = 'red';
+                        document.querySelector('#feedback').innerHTML = 'Incorrect';
+                    });
+                }
+
+                document.querySelector('#check').addEventListener('click', function() {
+                    let input = document.querySelector('input');
+                    if (input.value.toLowerCase() === 'high') {
+                        input.style.backgroundColor = 'green';
+                        document.querySelector('#feedback2').innerHTML = 'Correct!'
+                    } else {
+                        input.style.backgroundColor = 'red';
+                        document.querySelector('#feedback2').innerHTML = 'Incorrect'
+                    }
+                });
+            });
+    </script>
+</html>

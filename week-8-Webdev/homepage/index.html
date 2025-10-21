@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+
+<html lang="en" data-bs-theme="dark">
+    <head>
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>My Webpage</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index.html">
+                <i class="bi bi-ubuntu"></i>
+                Home
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Book Consultation</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Contacts</a>
+                </li>
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Resources
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                </ul>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#" id="ToggleTheme">🌙/☀️</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+            </div>
+        </div>
+        </nav>
+
+        <!-- Banner Section - Full Width -->
+        <div class="banner-container">
+            <img src="https://lirp-cdn.multiscreensite.com/254acb4f/dms3rep/multi/opt/DTI+fibtre+tracking++2-1920w.png" class="img-fluid w-100" alt="Brain DTI Fiber Tracking" style="height: 350px; object-fit: cover;">
+        </div>
+
+        <main class="container py-5">
+            <!--two different card as nav i think--> 
+            <div class="text-center">  
+                <h1 id="name">Dr. Arianna C.</h1>   
+                <h3 id="spec">Intrventional Neuroradiologist</h3>
+                <h4>Policlinico San **** **** IRCCS</h4>
+            </div> 
+            
+            <br>
+            <hr>
+            <br>
+
+            <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    What is a Brain Aneurysm?
+                </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    A brain aneurysm is a weak or thin spot in the wall of a blood vessel in the brain that bulges outward, forming a small balloon-like sac. Most aneurysms develop silently and cause no symptoms until they become large or rupture. When an aneurysm ruptures, it can lead to bleeding in the brain (subarachnoid hemorrhage), a life-threatening emergency requiring immediate treatment. The exact cause is not always known, but factors such as high blood pressure, smoking, and family history can increase the risk. Modern neurointerventional techniques allow many aneurysms to be treated safely through minimally invasive procedures performed inside the blood vessels, without the need for open surgery.
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    How to treat an Aneurysm with Enduvascular approach?
+                </button>
+                </h2>
+                <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    The endovascular approach to treating cerebral aneurysms is a minimally invasive technique that allows the aneurysm to be excluded from circulation without opening the skull. Through a small puncture in the groin or wrist, a catheter is guided under X-ray imaging to the brain’s blood vessels. Tiny coils or specialized devices, such as stents or flow diverters, are then placed inside the aneurysm to promote its closure and restore normal blood flow. This procedure reduces the risks associated with traditional surgery, offers a faster recovery time, and is performed under general anesthesia or, in some cases, conscious sedation.
+                </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Novel evidence...
+                </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                     <p>
+                        Modern evidence strongly supports the endovascular approach for many cerebral aneurysms.
+                        In ruptured cases, randomized trials show that coiling provides similar or better clinical outcomes
+                        than surgical clipping, although retreatment may be more common. For wide-neck aneurysms of the internal carotid artery,
+                        flow diverters such as the Pipeline device achieve durable occlusion rates up to 5 years.
+                        For small and medium aneurysms, long-term results confirm sustained efficacy.
+                        For bifurcation aneurysms, the intrasaccular WEB device has shown excellent safety and effectiveness
+                        with stable occlusion at 5-year follow-up.
+                    </p>
+                    <ol>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/16139655/" target="_blank" rel="noopener">ISAT: coiling vs clipping, improved functional outcomes (2005)</a></li>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/26115467/" target="_blank" rel="noopener">BRAT: long-term results at 6 years (2015)</a></li>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/28362885/" target="_blank" rel="noopener">PUFS: Pipeline flow diverter, 5-year results (2017)</a></li>
+                        <li><a href="https://pubmed.ncbi.nlm.nih.gov/35292570/" target="_blank" rel="noopener">PREMIER: Pipeline in small/medium aneurysms, 3-year outcomes (2023)</a></li>
+                        <li><a href="https://jnis.bmj.com/content/15/12/1175" target="_blank" rel="noopener">WEB-IT: intrasaccular WEB device, 5-year safety and efficacy (2023)</a></li>
+                    </ol>
+                </div>
+                </div>
+            </div>
+            </div>
+
+
+            <br>
+            <hr>
+            <br>
+            
+
+            <div class="card-group">
+            <div class="card">
+                <a href="cv.html" class="text-decoration-none">
+                    <img src="https://media.istockphoto.com/id/1473413961/photo/cerebral-angiography-image-from-fluoroscopy-in-intervention-radiology-showing-cerebral-artery.jpg?s=612x612&w=0&k=20&c=0JlLTkXhDiduUcyhli8HkLBeRjQjwfVDMHMLmdqo9go=" class="card-img-top" alt="..." style="height: 350px;">
+                    <div class="card-body">
+                    <h5 class="card-title">Curriculum Vitae</h5>
+                    <p class="card-text">Explore my CV</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="procedures.html" class="text-decoration-none">
+                    <img src="https://www.barrowneuro.org/wp-content/uploads/IM-006907-02-regular_stent_coil_giant_aneurysm_RGB24-e1515786374852.jpg" class="card-img-top" alt="..." style="height: 350px;">
+                    <div class="card-body">
+                    <h5 class="card-title">Procedures</h5>
+                    <p class="card-text">Explore my experience in endovascular treatments</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </a>
+            </div>
+            <div class="card">
+                <a href="pub.html" class="text-decoration-none">
+                    <img src="https://www.news-medical.net/images/appnotes/ImageForAppNote_5494_17369616644479810.jpg" class="card-img-top" alt="..." style="height: 350px;">
+                    <div class="card-body">
+                    <h5 class="card-title">Publication</h5>
+                    <p class="card-text">Explore my research activity</p>
+                    <p class="card-text"><small class="text-body-secondary">Last updated 3 mins ago</small></p>
+                    </div>
+                </a>
+            </div>
+            </div>
+        </main>
+
+        <!-- footer div -->
+            <div class="container">
+            <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+                <div class="col-md-4 d-flex align-items-center">
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Kernel236</span>
+                </div>
+                <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3"><a class="text-body-secondary" href="https://github.com/Kernel236/">
+                    <i class="bi-github" style="font-size: 2rem;"></i>             
+                    </a>
+                </li>
+                </ul>
+            </footer>
+            </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+        <script src="scripts.js"></script>
+    </body>
+</html>

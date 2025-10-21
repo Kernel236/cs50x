@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            Hello Title
+        </title>
+    </head>
+    <body>
+        <form>
+            <input autocomplete="off" autofocus id="name" name="name" placeholder="Name" type="text">
+            <input type="submit"> 
+        </form>
+        <!--
+            This script waits for the DOM to fully load before executing.
+            It attaches a 'submit' event listener to the first <form> element found in the document.
+            When the form is submitted:
+                - It retrieves the value entered in the input field with id="name".
+                - It displays an alert greeting the user with their entered name.
+                - It prevents the default form submission behavior to avoid page reload.
+            Academic Notes:
+                - Using 'DOMContentLoaded' ensures that the script runs only after the HTML is parsed, preventing errors from missing elements.
+                - 'event.preventDefault()' is a common technique to handle form data with JavaScript without refreshing the page.
+                - Querying elements by id (e.g., '#name') is efficient for single, unique elements.
+                - This approach is foundational in client-side form handling and user interaction in web development.
+        -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function(){
+                document.querySelector('form').addEventListener('submit', function(event){
+                    let name = document.querySelector('#name').value;
+                    alert('Hello, ' + name)
+                    event.preventDefault();
+                });
+            });
+        </script>
+        <script src="scripts.js"></script>
+    </body>
+</html>

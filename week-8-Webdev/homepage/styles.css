@@ -1,0 +1,25 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+}
+
+/* Hover effect for card */
+.card:hover {
+    transform: translateY(-5px); 
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15); 
+    transition: all 0.3s ease; 
+    z-index: 10;
+}
+
+.card {
+    transition: all 0.3s ease;
+}
+
+#name {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+#spec {
+    font-style: italic;
+}

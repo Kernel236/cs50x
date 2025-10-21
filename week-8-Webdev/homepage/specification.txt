@@ -1,0 +1,27 @@
+SPECIFICATION.TXT - Dr. Arianna Camilli Website
+================================================
+
+10 HTML TAGS USED:
+1. <html> - Root element with Bootstrap theme attribute (data-bs-theme)
+2. <head> - Contains metadata, CSS links, and page title
+3. <body> - Main content container for the entire webpage
+4. <nav> - Bootstrap navigation bar with responsive design
+5. <div> - Multiple containers for layout organization and Bootstrap grid system
+6. <a> - Anchor tags for navigation links and clickable cards
+7. <img> - Images for banner, card thumbnails, and visual content
+8. <h1>, <h3>, <h4> - Heading hierarchy for page title and doctor information
+9. <button> - Interactive elements for navbar toggle and accordion controls
+10. <i> - Icon elements using Bootstrap Icons (Ubuntu icon, GitHub icon)
+
+5 CSS PROPERTIES USED:
+1. font-family - Set custom typography using Times New Roman for professional appearance
+2. transform - Creates hover effects with translateY() to lift cards on mouse interaction
+3. box-shadow - Adds depth and visual hierarchy with shadow effects on card hover
+4. transition - Smooth animations for hover effects with 0.3s ease timing
+5. font-size - Custom sizing for headings and body text to establish visual hierarchy
+
+JAVASCRIPT USAGE:
+JavaScript is used to implement a dynamic theme toggle functionality that switches between Bootstrap's light and dark themes by manipulating the data-bs-theme attribute on the HTML element when users click the toggle button.
+
+BOOTSTRAP USAGE:
+Bootstrap provides the responsive grid system, pre-styled navigation components, card layouts, accordion functionality, and a comprehensive dark/light theme system that ensures consistent styling and mobile responsiveness across the entire medical professional website.

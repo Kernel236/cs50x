@@ -1,0 +1,9 @@
+1. The listener’s audio aura:
+Based on the average energy, valence, and danceability of the 100 top songs, the listener’s aura appears to be calm and reflective. This suggests a preference for The aura seems calm and introspective, with low energy and valence values, suggesting that the listener tends to prefer acoustic, mellow, or emotional tracks.
+
+2. Limitations and improvements:
+This aura might not represent the listener accurately, since the top 100 songs may not cover all listening habits or contexts. 
+A better approach would be to:
+- Weight each song by total listening time or play count,
+- Include additional features (tempo, acousticness, speechiness),
+- Analyze how preferences change over time.
