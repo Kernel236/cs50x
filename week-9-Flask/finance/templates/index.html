@@ -1,0 +1,62 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Portfolio
+{% endblock %}
+
+{% block main %}
+    <div class="container">
+        <h1>Portfolio</h1>
+        
+        {% if portfolio %}
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Symbol</th>
+                    <th>Name</th>
+                    <th>Shares</th>
+                    <th>Price</th>
+                    <th>TOTAL</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for stock in portfolio %}
+                <tr>
+                    <td>{{ stock.symbol }}</td>
+                    <td>{{ stock.name }}</td>
+                    <td>{{ stock.shares }}</td>
+                    <td>{{ stock.price | usd }}</td>
+                    <td>{{ stock.total | usd }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr class="table-secondary">
+                    <th colspan="4">Stocks Total</th>
+                    <th>{{ total_stock_value | usd }}</th>
+                </tr>
+            </tfoot>
+        </table>
+        {% else %}
+        <div class="alert alert-info">
+            <p>You don't own any stocks yet. <a href="/buy">Buy some stocks</a> to get started!</p>
+        </div>
+        {% endif %}
+        
+        <table class="table mt-4">
+            <tr class="table-light">
+                <td><strong>Cash</strong></td>
+                <td><strong>{{ cash | usd }}</strong></td>
+            </tr>
+            <tr class="table-success">
+                <td><strong>TOTAL</strong></td>
+                <td><strong>{{ grand_total | usd }}</strong></td>
+            </tr>
+        </table>
+        
+        <div class="mt-3">
+            <a href="/buy" class="btn btn-primary">Buy Stocks</a>
+            <a href="/quote" class="btn btn-secondary">Get Quote</a>
+        </div>
+    </div>
+{% endblock %}
