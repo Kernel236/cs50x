@@ -1,0 +1,474 @@
+# CS50x Course Repository - .gitignore
+# =====================================
+
+# ===================
+# C/C++ Files
+# ===================
+
+# Compiled Object Files
+*.o
+*.obj
+*.elf
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# CS50 compiled executables (no extension)
+# C exercise executables
+c-excercise/algorithm/search
+c-excercise/basic-exercise/calculator
+c-excercise/basic-exercise/compare
+c-excercise/basic-exercise/hello
+c-excercise/basic-exercise/mario
+c-excercise/basic-exercise/status
+c-excercise/basic-exercise/string
+c-excercise/data-structure/delete-node
+c-excercise/data-structure/inserting-node
+c-excercise/data-structure/inserting-node-at-nth
+c-excercise/data-structure/linked-list-LIFO
+c-excercise/data-structure/reverse-linked-list
+c-excercise/data-structure/struct
+c-excercise/memory/2d-array
+c-excercise/memory/addresses
+c-excercise/memory/dinamic-memory
+c-excercise/memory/malloc
+c-excercise/memory/phonebook
+c-excercise/memory/pointer-to-pointer
+c-excercise/memory/pointers-and-array
+c-excercise/memory/pointers1
+c-excercise/memory/pointers2
+c-excercise/memory/pointers3
+c-excercise/memory/swap
+
+# Week-specific executables
+week-1-C/credit/credit
+week-1-C/mario/cs50mario
+week-2-C-array/readability/readability
+week-2-C-array/scrabble/scrabble
+week-2-C-array/substitution/substitution
+week-3-C-algorithms/plurality/plurality
+week-3-C-algorithms/sort/sort1
+week-3-C-algorithms/sort/sort2
+week-3-C-algorithms/sort/sort3
+week-4-C-memory/filter/filter
+week-4-C-memory/recover/recover
+week-4-C-memory/volume/volume
+week-5-C-dsa/inheritance/inheritance
+week-5-C-dsa/speller/speller
+week-5-C-dsa/speller/speller50
+
+# Debugging files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# ===================
+# Python Files
+# ===================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# CS50 Flask specific virtual environments
+.birthday_venv/
+.finance-env/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+# ===================
+# Flask/Web Files
+# ===================
+
+# Flask sessions
+flask_session/
+
+# SQLite databases (comment out if you want to include sample databases)
+# *.db
+# *.sqlite
+# *.sqlite3
+
+# ===================
+# Web Development
+# ===================
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# TypeScript v1 declaration files
+typings/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+.env.test
+
+# parcel-bundler cache (https://parceljs.org/)
+.cache
+.parcel-cache
+
+# Next.js build output
+.next
+
+# Nuxt.js build / generate output
+.nuxt
+dist
+
+# Gatsby files
+.cache/
+# Comment in the public line in if your project uses Gatsby and *not* Next.js
+# https://nextjs.org/blog/next-9-1#public-directory-support
+# public
+
+# vuepress build output
+.vuepress/dist
+
+# Serverless directories
+.serverless/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# TernJS port file
+.tern-port
+
+# ===================
+# Operating System
+# ===================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+# Linux
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ===================
+# IDE/Editor Files
+# ===================
+
+# Visual Studio Code
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
+# Sublime Text
+*.tmlanguage.cache
+*.tmPreferences.cache
+*.stTheme.cache
+*.sublime-workspace
+*.sublime-project
+
+# Vim
+*~
+*.swp
+*.swo
+*~
+Session.vim
+.netrwhist
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# JetBrains IDEs
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ===================
+# Temporary Files
+# ===================
+
+# General
+*.tmp
+*.temp
+*.log
+*.bak
+*.backup
+*~
+*.orig
+*.rej
+
+# ===================
+# CS50-Specific Files
+# ===================
+
+# CS50 IDE files
+.c9/
+
+# Style checking cache
+.style50-cache/
+
+# Check50 temporary files
+.check50/
+
+# Submit50 files
+.submit50/
+
+# ===================
+# Miscellaneous
+# ===================
+
+# Archive files (usually not needed in source control)
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large data files (uncomment if you have large test files)
+# *.csv
+# *.txt
+# *.json
+
+# Compiled documentation
+docs/build/
+
+# Local environment variables
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Dependency lock files (comment out if you want to include them)
+# package-lock.json
+# yarn.lock
