@@ -161,7 +161,7 @@ week-9-Flask/
 -   [x] Week 6: Python
 -   [x] Week 7: SQL
 -   [x] Week 8: Web Development
--   [ ] Week 9: Flask
+-   [x] Week 9: Flask
 
 ## 🎯 Key Learning Outcomes
 
