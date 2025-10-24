@@ -1,0 +1,36 @@
+CS50x Course Solutions License
+
+Copyright (c) 2025 Kernel236
+
+This repository contains solutions to problem sets and projects from Harvard University's CS50x course.
+
+EDUCATIONAL USE LICENSE
+
+Permission is hereby granted to view, study, and learn from the code in this repository for educational purposes only, subject to the following conditions:
+
+1. ACADEMIC INTEGRITY: This code is provided for reference and learning purposes only. 
+   Students currently enrolled in CS50x or similar courses should NOT copy or submit 
+   this code as their own work, as this would violate academic integrity policies.
+
+2. LEARNING PURPOSE: You may study this code to understand problem-solving approaches 
+   and programming techniques, but you should write your own original solutions.
+
+3. ATTRIBUTION: If you reference or discuss these solutions in educational contexts, 
+   please provide appropriate attribution to this repository.
+
+4. NO COMMERCIAL USE: This code may not be used for commercial purposes.
+
+5. NO WARRANTY: This software is provided "as is", without warranty of any kind, 
+   express or implied, including but not limited to the warranties of merchantability, 
+   fitness for a particular purpose and noninfringement.
+
+DISCLAIMER:
+The author of this repository is not affiliated with Harvard University or the CS50 course staff. 
+These solutions represent one person's approach to the problems and may not represent 
+the best or most efficient solutions.
+
+For current CS50x students: Please respect the course's academic honesty policy. 
+Use this repository only as a reference AFTER completing your own solutions, 
+or when you are genuinely stuck and need to understand a concept.
+
+Course Honor Code: https://cs50.harvard.edu/x/2024/honesty/

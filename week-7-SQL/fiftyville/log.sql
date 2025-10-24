@@ -1,285 +1,141 @@
--- Keep a log of any SQL queries you execute as you solve the mystery.
+-- Fiftyville Mystery Investigation Log
+-- Solving the CS50 duck theft case step by step
 
--- What I already know about the Theft?
--- 1. Theft took place on July 28
--- 2. Theft tool pace on Humphery Street
+-- Initial facts:
+-- - Crime date: July 28, 2021
+-- - Location: Humphrey Street
 
-.table -- to look at tables in the db
+-- First, let's explore the database structure
+.tables
+.schema 
 
-.schema -- to look at the tables schema and connection 
-
-SELECT description FROM crime_scene_reports
-	WHERE crime_scene_reports.day = 28
-	AND crime_scene_reports.month = 'July'
-	AND crime_scene_reports.street = 'Humphrey Street';
- 
--- Theft of the CS50 duck took place at 10:15am at the Humphrey Street bakery. Interviews were conducted today with three witnesses who were present at the time – each of their interview transcripts mentions the bakery. Littering took place at 16:36. No known witnesses.
-
--- Search that interview
-SELECT name, transcript FROM interviews 
-	WHERE day = 28 AND month = 7 AND transcript LIKE '%bakery';
--- based on the interviews suggetion next step will be:
--- Ruth said to look at bakery security activity to look the car which left the bakery parking within 10 minutes from the Theft 10:15 am so between 10:15 & 10:25
-
--- Eugene suggeseted to look at atm transaction earlier than the theft because she saw the thief withdrawing some money 
-
--- Third suggetion was on a phone call lasted less than 60 sec talking about a flight for the next mornign.
-
-
-
-SELECT id
-	,description
+-- Step 1: Find the crime scene report for July 28th on Humphrey Street
+SELECT description 
 FROM crime_scene_reports
-WHERE year = 2021
-	AND month = 7
-	AND day = 28
-	AND street LIKE '%Humphrey%';
-
--- POINTS:
--- Crime took place at 10:15am
--- Everyone mentioned bakery
-
--- Q2: Check for the date of the interview
-SELECT name
-	,transcript
-FROM interviews
-WHERE year = 2021
-	AND month = 7
-	AND day = 28
-	AND transcript LIKE '%bakery%';
-
--- POINTS:
--- One of the thieves withdrew money from the ATM on Leggett Street ealier that morning
--- They left the bakery about 10:25am (10 minutes later after the incident)
--- They plan to leave town with the earliest flight the following morning (from conversation < 60mins at about 10:25am)
-
--- Q3: Check for the person that used the atm using the info above
--- select account_number from atm_transactions where year = 2021 and month = 7 and day = 28 and atm_location like '%leggett street%';
-WITH bank_details
-AS (
-	SELECT DISTINCT (pe.name)
-	FROM people AS pe
-	JOIN bank_accounts AS ba ON pe.id = ba.person_id
-	JOIN atm_transactions AS at ON ba.account_number = at.account_number
-	WHERE at.account_number IN (
-			SELECT account_number
-			FROM atm_transactions
-			WHERE year = 2021
-				AND month = 7
-				AND day = 28
-				AND atm_location LIKE '%leggett street%'
-				AND transaction_type = 'withdraw'
-			)
-	)
-	,phone_details
-AS (
-	SELECT name
-	FROM people
-	WHERE phone_number IN (
-			SELECT CALLER
-			FROM phone_calls
-			WHERE year = 2021
-				AND month = 7
-				AND day = 28
-				AND duration < 60
-			)
-	)
-	,car_details
-AS (
-	SELECT name
-	FROM people
-	WHERE license_plate IN (
-			SELECT license_plate
-			FROM bakery_security_logs
-			WHERE year = 2021
-				AND month = 7
-				AND day = 28
-				AND activity = 'exit'
-				AND minute > 15
-				AND minute <= 25
-			)
-	)
-	,flight_details
-AS (
-	SELECT name
-		,fl.origin_airport_id
-		,fl.destination_airport_id
-	FROM people AS pe
-	JOIN passengers AS pa ON pe.passport_number = pa.passport_number
-	JOIN flights AS fl ON pa.flight_id = fl.id
-	JOIN airports AS ai ON fl.origin_airport_id = ai.id
-	WHERE fl.id IN (
-			SELECT id
-			FROM flights
-			WHERE year = 2021
-				AND month = 7
-				AND day = 29
-			ORDER BY hour limit 1
-			)
-		AND origin_airport_id IN (
-			SELECT id
-			FROM airports
-			WHERE city = 'Fiftyville'
-			)
-	)
-	,origin_airport
-AS (
-	SELECT *
-	FROM airports
-	WHERE id IN (
-			SELECT fl.origin_airport_id
-			FROM flights AS fl
-			-- JOIN flights AS fl ON pa.flight_id = fl.id
-			JOIN airports AS ai ON fl.origin_airport_id = ai.id
-			WHERE fl.id IN (
-					SELECT id
-					FROM flights
-					WHERE year = 2021
-						AND month = 7
-						AND day = 29
-					ORDER BY hour limit 1
-					)
-			)
-	)
-	,destination_airport
-AS (
-	SELECT *
-	FROM airports
-	WHERE id IN (
-			SELECT destination_airport_id
-			FROM flights AS fl
-			-- JOIN flights AS fl ON pa.flight_id = fl.id
-			JOIN airports AS ai ON fl.origin_airport_id = ai.id
-			WHERE fl.id IN (
-					SELECT id
-					FROM flights
-					WHERE year = 2021
-						AND month = 7
-						AND day = 29
-					ORDER BY hour limit 1
-					)
-			)
-	)
-	,suspects
-AS (
-	SELECT pe.name
-		,pe.phone_number
-		,fd.*
-	FROM people AS pe
-	JOIN bank_details AS bd ON pe.name = bd.name
-	JOIN phone_details AS pd ON bd.name = pd.name
-	JOIN car_details AS cd ON pd.name = cd.name
-	JOIN flight_details AS fd ON cd.name = fd.name
-	ORDER BY pe.name
-	)
--- Format suspest_table output
-SELECT sp.name AS caller_name
-	-- ,sp.*
-	,pe.name AS receiver_name
-	,oa.full_name AS origin_airport
-	,da.full_name AS destination_airport
-	,da.city AS city
-	,pc.CALLER AS caller_number
-	,pc.receiver AS receiver_name
-FROM phone_calls AS pc
-	,origin_airport AS oa
-	,destination_airport AS da
-JOIN suspects AS sp ON sp.phone_number = pc.CALLER
-JOIN people AS pe ON pc.receiver = pe.phone_number
-WHERE pc.year = 2021
-	AND pc.month = 7
-	AND pc.day = 28
-	AND pc.duration < 60;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+WHERE day = 28 
+    AND month = 'July' 
+    AND street = 'Humphrey Street';
+
+-- Result: Duck theft at 10:15am at bakery, 3 witnesses interviewed
+
+-- Step 2: Get witness interviews mentioning the bakery
+SELECT name, transcript 
+FROM interviews 
+WHERE day = 28 
+    AND month = 7 
+    AND transcript LIKE '%bakery%';
+
+-- Key clues from witnesses:
+-- • Car left bakery parking lot within 10 minutes of theft (10:15-10:25am)
+-- • ATM withdrawal on Leggett Street earlier that morning  
+-- • Phone call under 60 seconds about earliest flight next morning
+
+
+
+-- Step 3: Cross-reference all evidence to identify the suspect
+-- Using CTEs to organize our investigation into logical components
+
+WITH bank_suspects AS (
+    -- People who withdrew money from Leggett Street ATM on July 28
+    SELECT DISTINCT pe.name
+    FROM people pe
+    JOIN bank_accounts ba ON pe.id = ba.person_id
+    JOIN atm_transactions at ON ba.account_number = at.account_number
+    WHERE at.year = 2021 
+        AND at.month = 7 
+        AND at.day = 28
+        AND at.atm_location LIKE '%Leggett Street%'
+        AND at.transaction_type = 'withdraw'
+)
+, phone_suspects AS (
+    -- People who made calls under 60 seconds on July 28
+    SELECT name
+    FROM people
+    WHERE phone_number IN (
+        SELECT caller
+        FROM phone_calls
+        WHERE year = 2021 
+            AND month = 7 
+            AND day = 28
+            AND duration < 60
+    )
+)
+, car_suspects AS (
+    -- People whose cars left bakery parking between 10:15-10:25am
+    SELECT name
+    FROM people
+    WHERE license_plate IN (
+        SELECT license_plate
+        FROM bakery_security_logs
+        WHERE year = 2021 
+            AND month = 7 
+            AND day = 28
+            AND activity = 'exit'
+            AND minute > 15 
+            AND minute <= 25
+    )
+)
+, flight_suspects AS (
+    -- People on earliest flight out of Fiftyville on July 29
+    SELECT name, fl.destination_airport_id
+    FROM people pe
+    JOIN passengers pa ON pe.passport_number = pa.passport_number
+    JOIN flights fl ON pa.flight_id = fl.id
+    WHERE fl.id = (
+        SELECT id
+        FROM flights
+        WHERE year = 2021 
+            AND month = 7 
+            AND day = 29
+            AND origin_airport_id = (
+                SELECT id FROM airports WHERE city = 'Fiftyville'
+            )
+        ORDER BY hour, minute
+        LIMIT 1
+    )
+)
+, escape_destination AS (
+    -- Find where the thief escaped to
+    SELECT city, full_name
+    FROM airports
+    WHERE id = (
+        SELECT destination_airport_id
+        FROM flights
+        WHERE id = (
+            SELECT id
+            FROM flights
+            WHERE year = 2021 
+                AND month = 7 
+                AND day = 29
+                AND origin_airport_id = (
+                    SELECT id FROM airports WHERE city = 'Fiftyville'
+                )
+            ORDER BY hour, minute
+            LIMIT 1
+        )
+    )
+)
+-- Final analysis: Find who appears in ALL evidence categories
+SELECT 
+    pe.name AS thief,
+    pe.phone_number,
+    ed.city AS escape_destination,
+    receiver.name AS accomplice
+FROM people pe
+JOIN bank_suspects bs ON pe.name = bs.name
+JOIN phone_suspects ps ON pe.name = ps.name  
+JOIN car_suspects cs ON pe.name = cs.name
+JOIN flight_suspects fs ON pe.name = fs.name
+JOIN escape_destination ed ON fs.destination_airport_id = ed.id
+JOIN phone_calls pc ON pe.phone_number = pc.caller
+    AND pc.year = 2021 AND pc.month = 7 AND pc.day = 28 AND pc.duration < 60
+JOIN people receiver ON pc.receiver = receiver.phone_number;
+-- Investigation Summary:
+-- The thief must appear in all four categories:
+-- 1. Made ATM withdrawal on Leggett Street
+-- 2. Made short phone call on July 28  
+-- 3. Left bakery parking lot between 10:15-10:25am
+-- 4. Took earliest flight out of Fiftyville on July 29
+
+-- The query above identifies both the thief and their accomplice (call receiver)
 
